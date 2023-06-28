@@ -8,10 +8,10 @@ public class Main {
         // реализуйте алгоритм здесь
         UserService userService = new UserServiceImpl();
         userService.createUsersTable();
-        userService.saveUser("Roman","Longer",(byte) 25);
-        userService.saveUser("Ivan","Phedorov",(byte) 30);
-        userService.saveUser("Viktor","Philippov",(byte) 55);
-        userService.saveUser("Dmitriy", "Kopchenkov",(byte) 14);
+        userService.saveUser("Ivan","Ivanov",(byte) 18);
+        userService.saveUser("Peter","Petrov",(byte) 21);
+        userService.saveUser("Viktor","Viktorov",(byte) 35);
+        userService.saveUser("Nikolay", "Nikolaev",(byte) 40);
         System.out.println("\nрузультат работы метода \" toString \" класса User:");
         System.out.println(userService.getAllUsers().toString());
 
