@@ -1,9 +1,11 @@
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
+import org.hibernate.HibernateException;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceTest {
@@ -51,7 +53,7 @@ public class UserServiceTest {
             }
 
 
-        } catch (Exception e) {
+        } catch  (Exception e) {
             Assert.fail("Во время тестирования сохранения пользователя произошло исключение\n" + e);
         }
     }
