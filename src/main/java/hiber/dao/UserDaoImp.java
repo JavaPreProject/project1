@@ -12,7 +12,6 @@ import java.util.List;
 
 @Repository
 public class UserDaoImp implements UserDao {
-
    @Autowired
    private SessionFactory sessionFactory;
 
@@ -29,30 +28,12 @@ public class UserDaoImp implements UserDao {
    }
 
    @Override
-   public void add(Car car) {
-      sessionFactory.getCurrentSession().save(car);
-   }
-
-   @Override
-   public List<Car> listCars() {
-      TypedQuery<Car> typedQuery = sessionFactory.getCurrentSession().createQuery("FROM Car", Car.class);
-      return typedQuery.getResultList();
-   }
-
-   @Override
    public User findCarHolder(String carName, int carSeries) {
       Query query = sessionFactory.getCurrentSession().createQuery
-                      ("FROM Car WHERE model = :car AND series = :series", Car.class)
+                      ("FROM User WHERE car.model = :car AND car.series = :series", User.class)
               .setParameter("car", carName)
               .setParameter("series", carSeries);
-      Car car = (Car) query.getSingleResult();
-      if (car != null){
-         for (User user : listUsers()) {
-            if (user.getCar().equals(car)) {
-               return user;
-            }
-         }
-      }
-      return null;
+      return  (User) query.getSingleResult();
+
    }
 }

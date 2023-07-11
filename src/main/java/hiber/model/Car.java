@@ -6,9 +6,9 @@ import javax.persistence.*;
 @Table(name = "mydbtest.cars")
 public class Car {
 
+    @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
     @Column(name = "model")
@@ -16,9 +16,6 @@ public class Car {
 
     @Column(name = "series")
     private int series;
-
-    @OneToOne(mappedBy = "car")
-    private User user;
 
     public Car(String model, int series) {
         this.model = model;
@@ -34,7 +31,31 @@ public class Car {
                 "id = " + id +
                 ", model = " + model +
                 ", series = " + series +
-                ", user = " + user +
+               // ", user = " + user +
                 "  }";
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getSeries() {
+        return series;
+    }
+
+    public void setSeries(int series) {
+        this.series = series;
     }
 }
